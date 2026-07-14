@@ -97,7 +97,9 @@ metrics panel (backend, RTF, latency, char count, GPU memory).
 
 ```bash
 pip install streamlit
-streamlit run src/ui/streamlit_app.py   # → http://localhost:8501
+python streamlit_demo.py          # → http://localhost:8501 (preferred: no path typing)
+# or directly:
+streamlit run src/ui/streamlit_app.py
 ```
 
 Type in EN/AR/HI, optionally upload a reference voice for cloning, pick a backend

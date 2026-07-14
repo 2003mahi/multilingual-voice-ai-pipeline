@@ -46,12 +46,23 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Initialize router once using Streamlit cache
+# Initialize router once using Streamlit cache. If the engines aren't
+# installed yet, cache None and surface a friendly message instead of
+# white-screening the whole app.
 @st.cache_resource
 def get_router():
-    return TTSRouter(CONFIG)
+    try:
+        return TTSRouter(CONFIG)
+    except Exception:  # noqa: BLE001
+        return None
 
 router = get_router()
+if router is None:
+    st.error(
+        "⚠️ TTS router failed to initialize. Install the TTS engines "
+        "(see README: `pip install cosyvoice chatterbox TTS ...`) and "
+        "restart the app."
+    )
 # Separate output path from the Gradio demo so both UIs can run side-by-side
 # without clobbering each other's generated audio.
 OUT_WAV = os.path.join(ROOT, "assets", "demo_ui_streamlit.wav")
@@ -80,7 +91,9 @@ with col2:
     ref_file = st.file_uploader("Upload reference audio file (.wav, .mp3)", type=["wav", "mp3"])
 
 if st.button("🔊 Generate Speech", type="primary", use_container_width=True):
-    if not text or not text.strip():
+    if router is None:
+        st.error("❌ TTS router is unavailable — see the error above.")
+    elif not text or not text.strip():
         st.warning("⚠️ Please enter some text.")
     else:
         with st.spinner("Synthesizing audio..."):
