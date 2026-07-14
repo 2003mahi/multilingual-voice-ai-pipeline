@@ -1,0 +1,46 @@
+# ── Core / API ──────────────────────────────────────────────
+fastapi==0.115.4
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+pydantic-settings==2.6.1
+python-dotenv==1.0.1
+httpx==0.28.1
+
+# ── Config / utils ──────────────────────────────────────────
+pyyaml==6.0.2
+numpy==1.26.4
+soundfile==0.13.1          # audio I/O
+librosa==0.10.2            # resampling / feature utils
+tqdm==4.67.1
+python-multipart==0.0.18   # FastAPI file uploads
+
+# ── GPU / monitoring ────────────────────────────────────────
+torch==2.4.1
+torchaudio==2.4.1
+
+# ── Evaluation ──────────────────────────────────────────────
+jiwer==3.0.2               # WER
+whisper==1.1.10            # ASR for WER (or faster-whisper below)
+# faster-whisper==1.0.3    # lower-latency ASR alternative
+speechbrain==1.0.0         # WavLM speaker encoder (similarity)
+utmos22-strong==0.1.0      # SSL-MOS proxy (predicted MOS)
+scikit-learn==1.5.2
+matplotlib==3.9.2
+seaborn==0.13.2
+pandas==2.2.3
+
+# ── Primary engines (install in Colab/notebook, heavy) ──────
+# cosyvoice  + modelscope   : CosyVoice2 (EN/AR/HI unified)
+# chatterbox : Chatterbox (EN quality specialist)
+# TTS        : XTTS-v2 (fallback)
+# transformers: MMS-TTS (CPU fallback)
+# These are intentionally NOT pinned here; see notebooks/colab_setup.py
+# for the exact pip install lines that match the runtime CUDA version.
+
+# ── Demo UI ─────────────────────────────────────────────────
+gradio>=4.0                 # interactive web demo (src/ui/gradio_app.py)
+
+# ── Optional AR/HI alternative engine ───────────────────────
+# fish-speech>=1.5          : Fish Speech 1.5 (uncomment to enable; this
+#                             backend degrades gracefully if not installed)
+

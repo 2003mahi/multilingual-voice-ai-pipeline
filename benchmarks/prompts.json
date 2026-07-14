@@ -1,0 +1,44 @@
+{
+  "en": [
+    "The quick brown fox jumps over the lazy dog while the sun sets behind the hills.",
+    "Welcome to our multilingual voice assistant, built entirely with open-source models.",
+    "She carefully measured the ingredients before baking the cake for the birthday party.",
+    "Artificial intelligence is transforming how we communicate across different languages.",
+    "The library was quiet except for the soft sound of turning pages and distant rain.",
+    "Please hold the line while we connect you to the nearest available representative.",
+    "He explained the complicated algorithm using a simple analogy about sorting socks.",
+    "Good morning, and thank you for joining today's technical deep dive session.",
+    "The river flowed gently past the old stone bridge covered in green moss.",
+    "Our team shipped the new feature ahead of schedule with zero critical bugs.",
+    "Learning a new language opens doors to cultures and ideas you never imagined.",
+    "The chef smiled as the guests tasted the first bite of the experimental dish."
+  ],
+  "ar": [
+    "مرحباً بك في مساعدنا الصوتي متعدد اللغات المبني بالكامل على نماذج مفتوحة المصدر.",
+    "قفز الثعلب البني السريع فوق الكلب الكسول بينما كانت الشمس تغرب خلف التلال.",
+    "الذكاء الاصطناعي يغير طريقة تواصلنا عبر اللغات المختلفة بشكل جذري.",
+    "يرجى الانتظار قليلاً بينما نوصلك بأقرب ممثل متاح لخدمتك.",
+    "المكتبة كانت هادئة إلا من صوت تقليب الصفحات والمطر البعيد.",
+    "تعلّم لغة جديدة يفتح أبواباً نحو ثقافات وأفكار لم تكن تتخيلها.",
+    "شكراً لانضمامك إلى جلسة اليوم التقنية المفصلة حول النظم الصوتية.",
+    "النهر يتدفق بهدوء بجانب الجسر الحجري القديم المغطى بالطحالب الخضراء.",
+    "قاسّت المكونات بعناية قبل أن تخبز الكعكة لحفلة عيد الميلاد.",
+    "أطلق فريقنا الميزة الجديدة قبل الموعد المحدد دون أخطاء حرجة.",
+    "يشرح المعلم الخوارزمية المعقدة باستعارة بسيطة عن ترتيب الجوارب.",
+    "صباح الخير، ونشكركم على المشاركة في هذه الجلسة التقنية المتقدمة."
+  ],
+  "hi": [
+    "नमस्ते, यह हमारा बहुभाषी आवाज़ सहायक है जो पूरी तरह खुले स्रोत मॉडलों पर आधारित है।",
+    "तेज़ भूरी लोमड़ी आलसी कुत्ते के ऊपर से कूद गई जब सूरज पहाड़ियों के पीछे डूब रहा था।",
+    "कृत्रिम बुद्धिमत्ता विभिन्न भाषाओं में हमारे संचार के तरीके को बदल रही है।",
+    "कृपया थोड़ा प्रतीक्षा करें जब तक हम आपको निकटतम प्रतिनिधि से जोड़ते हैं।",
+    "पुस्तकालय शांत था, सिर्फ पन्नों के पलटने और दूर की बारिश की आवाज़ के साथ।",
+    "एक नई भाषा सीखने से संस्कृतियों और विचारों के द्वार खुलते हैं जिन्हें आपने कभी नहीं सोचा।",
+    "आज के तकनीकी विस्तृत सत्र में शामिल होने के लिए धन्यवाद।",
+    "नदी पुराने पत्थर के पुल के पास धीरे-धीरे बह रही थी जो हरी हरी झाग से ढका था।",
+    "उसने जन्मदिन की पार्टी के लिए केक पकाने से पहले सामग्री को ध्यान से मापा।",
+    "हमारी टीम ने नई सुविधा समय से पहले बिना किसी गंभीर त्रुटि के जारी की।",
+    "अध्यापक जुराबें लगाने की सरल उपमा से जटिल एल्गोरिदम को समझाता है।",
+    "सुप्रभात, और आज के इस उन्नत तकनीकी सत्र में शामिल होने के लिए धन्यवाद।"
+  ]
+}

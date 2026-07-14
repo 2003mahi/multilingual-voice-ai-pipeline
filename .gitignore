@@ -1,0 +1,32 @@
+# ── Python ─────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# ── Secrets / local config ─────────────────────────────────
+.env                      # local secrets (keep .env.example committed)
+*.key
+*.pem
+
+# ── Model caches & generated artifacts ─────────────────────
+.cache/
+.cache/hf/
+.cache/spkrec-wavlm-large/
+logs/
+__pycache__/
+
+# ── User reference voices & generated audio ────────────────
+assets/voices/*.wav
+assets/*.wav
+assets/demo_*.wav
+assets/demo_ui.wav
+benchmarks/results/
+
+# ── OS / editor ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

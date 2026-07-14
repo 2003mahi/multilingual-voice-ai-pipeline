@@ -1,0 +1,81 @@
+# ─────────────────────────────────────────────────────────────
+# Multilingual Voice AI Pipeline — runtime configuration
+# All values overridable via environment variables (.env).
+# ─────────────────────────────────────────────────────────────
+service:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1                 # TTS backends hold GPU state → keep 1
+  log_level: "INFO"
+  default_language: "en"
+
+devices:
+  # "auto" → pick first CUDA GPU, else CPU
+  preferred: "auto"
+  # CosyVoice2 fp16 can double throughput on Ampere+; safer False on T4
+  fp16: false
+
+# Router: which backend serves which language.
+# "cosyvoice2" is the UNIFIED engine (EN/AR/HI). Chatterbox is the EN
+# quality specialist we benchmark against. Fallbacks engage on load failure.
+routing:
+  default_backend: "cosyvoice2"
+  language_map:
+    en: ["cosyvoice2", "chatterbox", "xtts", "fishspeech"]   # ordered by preference
+    ar: ["cosyvoice2", "fishspeech", "xtts"]                 # Fish Speech = AR alt
+    hi: ["cosyvoice2", "fishspeech", "xtts"]                 # Fish Speech = HI alt
+  fallback_chain: ["cosyvoice2", "fishspeech", "xtts", "mmsts"]   # last resort (CPU)
+
+backends:
+  cosyvoice2:
+    enabled: true
+    model_id: "iic/CosyVoice2-0.5B"     # ModelScope; HF mirror: FunAudioLLM/CosyVoice2-0.5B
+    load_jit: false
+    load_trt: false
+    stream: true
+    # 16kHz reference wav required for zero-shot cloning
+    clone_prompt_text: ""               # optional; empty → cross-lingual mode
+  chatterbox:
+    enabled: true
+    model_id: "ResembleAI/chatterbox"   # auto-downloaded on first use
+    exaggeration: 0.5
+    temperature: 0.8
+    stream: false
+  xtts:
+    enabled: true
+    model_id: "tts_models/multilingual/multi-dataset/xtts_v2"
+    stream: false
+  mmsts:
+    enabled: true
+    # per-language model ids are resolved at load time (facebook/mms-tts-<lang>)
+    stream: false
+  fishspeech:
+    enabled: true
+    model_id: "fishaudio/fish-speech-1.5"
+    stream: false
+    clone_prompt_text: ""       # optional reference transcription for cloning
+
+# Voice cloning: default reference voices per language (drop .wav in assets/voices/)
+voices:
+  en: "assets/voices/en_ref.wav"
+  ar: "assets/voices/ar_ref.wav"
+  hi: "assets/voices/hi_ref.wav"
+  # upload your own via /clone/upload or pass voice_ref in the request
+
+evaluation:
+  utmos: true                  # predicted MOS (UTMOS22 strong)
+  speaker_similarity: true     # WavLM-large cosine
+  wer: true                    # Whisper transcription → jiwer
+  asr_model: "openai/whisper-medium"   # per-lang Whisper selection in code
+  sample_rate: 24000
+
+logging:
+  dir: "logs"
+  json: false
+  retention_days: 7
+
+benchmark:
+  output_dir: "benchmarks/results"
+  num_samples: 20              # sentences per language
+  warmup: 3
+  reference_prompts: "benchmarks/prompts.json"

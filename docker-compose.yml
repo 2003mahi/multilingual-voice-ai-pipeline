@@ -1,0 +1,26 @@
+services:
+  tts:
+    build: .
+    image: multilingual-voice-ai:1.0
+    ports:
+      - "8000:8000"
+    environment:
+      - DEVICE=cuda
+      - SERVICE_PORT=8000
+      - LOG_LEVEL=INFO
+      - ENABLE_COSYVOICE2=true
+      - ENABLE_CHATTERBOX=true
+      - ENABLE_XTTS=true
+      - ENABLE_MMSTS=true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - ./assets:/app/assets
+      - ./benchmarks/results:/app/benchmarks/results
+      - ./logs:/app/logs
+    restart: unless-stopped
