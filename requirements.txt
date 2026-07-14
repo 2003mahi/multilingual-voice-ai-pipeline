@@ -39,6 +39,7 @@ pandas==2.2.3
 
 # ── Demo UI ─────────────────────────────────────────────────
 gradio>=4.0                 # interactive web demo (src/ui/gradio_app.py)
+streamlit>=1.30             # alternative web demo (src/ui/streamlit_app.py)
 
 # ── Optional AR/HI alternative engine ───────────────────────
 # fish-speech>=1.5          : Fish Speech 1.5 (uncomment to enable; this

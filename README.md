@@ -90,6 +90,20 @@ the API, so routing + fallback behave identically.
 > its API differs by version), the `fishspeech` backend simply fails to load and
 > the router falls through to the next engine — it never blocks the pipeline.
 
+## Interactive demo (Streamlit)
+
+A Streamlit alternative to the Gradio demo, with the same router, cloning, and
+metrics panel (backend, RTF, latency, char count, GPU memory).
+
+```bash
+pip install streamlit
+streamlit run src/ui/streamlit_app.py   # → http://localhost:8501
+```
+
+Type in EN/AR/HI, optionally upload a reference voice for cloning, pick a backend
+(or leave blank for the router to choose), then hit **Generate Speech**. Like the
+Gradio demo it reuses the exact same `TTSRouter` as the API.
+
 ## Benchmarking
 
 ```bash
