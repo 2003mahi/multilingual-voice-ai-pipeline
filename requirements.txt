@@ -1,5 +1,5 @@
 # ── Core / API ──────────────────────────────────────────────
-fastapi==0.115.4
+fastapi==0.115.0
 uvicorn[standard]==0.32.1
 pydantic==2.10.3
 pydantic-settings==2.6.1
@@ -23,7 +23,7 @@ jiwer==3.0.2               # WER
 whisper==1.1.10            # ASR for WER (or faster-whisper below)
 # faster-whisper==1.0.3    # lower-latency ASR alternative
 speechbrain==1.0.0         # WavLM speaker encoder (similarity)
-utmos22-strong==0.1.0      # SSL-MOS proxy (predicted MOS)
+# utmos22-strong==0.1.0      # SSL-MOS proxy (predicted MOS) - not available on PyPI
 scikit-learn==1.5.2
 matplotlib==3.9.2
 seaborn==0.13.2
@@ -38,7 +38,8 @@ pandas==2.2.3
 # for the exact pip install lines that match the runtime CUDA version.
 
 # ── Demo UI ─────────────────────────────────────────────────
-gradio>=4.0                 # interactive web demo (src/ui/gradio_app.py)
+gradio==4.44.1              # interactive web demo (src/ui/gradio_app.py)
+streamlit==1.37.1           # alternative web demo (src/ui/streamlit_app.py)
 
 # ── Optional AR/HI alternative engine ───────────────────────
 # fish-speech>=1.5          : Fish Speech 1.5 (uncomment to enable; this
